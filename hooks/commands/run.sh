@@ -85,8 +85,11 @@ set +e
 )
 
 exitcode=$?
+
+# TODO: We don't restore set -e, since it's possible for the docker commands to fail.
+# e.g. with an EOF.
 # Restore -e as an option.
-set -e
+# set -e
 
 if [[ $exitcode -ne 0 ]] ; then
   echo "^^^ +++"
